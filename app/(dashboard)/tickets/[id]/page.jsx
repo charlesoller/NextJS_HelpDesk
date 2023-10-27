@@ -2,6 +2,9 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers"
 import { notFound } from "next/navigation";
 
+//components
+import DeleteButton from "./DeleteButton";
+
 export const dynamicParams = true;
 
 export async function generateMetadata({ params }){
@@ -18,7 +21,7 @@ export async function generateMetadata({ params }){
 }
 
 async function getTicket(id){
-    const supabase = createServerComponentClient({ cookies })
+    const supabase = createServerComponentClient({ cookies });
 
     const { data } = await supabase.from('Tickets')
     .select()
@@ -33,12 +36,20 @@ async function getTicket(id){
 }
 
 export default async function TicketDetails({ params }){
-    const ticket = await getTicket(params.id)
+    const ticket = await getTicket(params.id);
+
+    const supabase = createServerComponentClient({ cookies });
+    const { data } = await supabase.auth.getSession();
 
     return (
         <main>
             <nav>
                 <h2>Ticket Details</h2>
+                <div className="ml-auto">
+                    {data.session.user.email === ticket.user_email && (
+                        <DeleteButton id={ticket.id} />
+                    )}
+                </div>
             </nav>
             <div className="card">
                 <h3>{ticket.title}</h3>
