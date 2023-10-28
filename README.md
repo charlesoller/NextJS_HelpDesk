@@ -1,3 +1,8 @@
+This project implements NextJS with Supabase to handle authentication and act a database. If you would like to login, you will need to either supply your actual email, as it will be sent an authentication link from Supabase, or you may use the login: 
+
+charlesrello@gmail.com (My email! Contact me for any development needs!)
+test123
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
