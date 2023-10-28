@@ -1,3 +1,5 @@
+LIVE LINK: next-js-help-desk-three.vercel.app
+
 This project implements NextJS with Supabase to handle authentication and act a database. If you would like to login, you will need to either supply your actual email, as it will be sent an authentication link from Supabase, or you may use the login: 
 
 charlesrello@gmail.com (My email! Contact me for any development needs!)
